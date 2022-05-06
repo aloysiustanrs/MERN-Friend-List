@@ -1,15 +1,17 @@
 const express = require("express");
 const app = express();
 var cors = require("cors");
-const port = 3001;
 const mongoose = require("mongoose");
 const FriendModel = require("./models/Friends");
+require("dotenv").config();
 
 app.use(cors()); //to let us connect frontend to backend
 app.use(express.json()); //to get JSON
 
 //Connect to database
-mongoose.connect("mongodb://localhost:27017/MERNFriendList");
+mongoose.connect(
+  "mongodb+srv://aloy2312:Aloywashere0@cluster0.dxph1.mongodb.net/MERNFriendList?retryWrites=true&w=majority"
+);
 
 //get data from frontend and send to database
 app.post("/addfriend", async (req, res) => {
@@ -55,6 +57,6 @@ app.delete("/delete/:id", async (req, res) => {
   res.send("item deleted");
 });
 
-app.listen(port, () => {
-  console.log(`App is running on port ${port}`);
+app.listen(process.env.PORT || 3001, () => {
+  console.log(`App is running`);
 });
