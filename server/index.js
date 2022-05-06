@@ -10,7 +10,7 @@ app.use(express.json()); //to get JSON
 
 //Connect to database
 mongoose.connect(
-  "mongodb+srv://aloy2312:Aloywashere0@cluster0.dxph1.mongodb.net/MERNFriendList?retryWrites=true&w=majority"
+  "mongodb+srv://aloy2312:<Password>@cluster0.dxph1.mongodb.net/MERNFriendList?retryWrites=true&w=majority"
 );
 
 //get data from frontend and send to database
